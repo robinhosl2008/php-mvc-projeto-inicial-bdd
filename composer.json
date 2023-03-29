@@ -5,6 +5,8 @@
     }
   },
   "scripts": {
+    "unit": "php vendor/bin/behat -s unidade",
+    "integration": "php vendor/bin/behat -s integracao",
     "behat": "php vendor/bin/behat",
     "behat_append": "php vendor/bin/behat --append-snippets --dry-run"
   },
