@@ -19,14 +19,6 @@ class FormacaoNoBanco implements Context
     private int $idFormacaoInserida;
 
     /**
-     * @Given que estou connectado ao banco de dados
-     */
-    public function queEstouConnectadoAoBancoDeDados()
-    {
-        $this->em = (new EntitymanagerCreator())->getEntityManager();
-    }
-
-    /**
      * @When tento salvar uma formação com a descrição :arg1
      */
     public function tentoSalvarUmaFormacaoComADescricao(string $descricaoFormacao)
@@ -51,5 +43,13 @@ class FormacaoNoBanco implements Context
         $formacao = $repositorio->find($this->idFormacaoInserida);
 
         assert($formacao instanceof Formacao);
+    }
+
+    /**
+     * @Given que estou connectado ao banco de dados
+     */
+    public function queEstouConnectadoAoBancoDeDados()
+    {
+        $this->em = (new EntitymanagerCreator())->getEntityManager();
     }
 }
